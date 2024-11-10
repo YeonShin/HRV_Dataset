@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="box_inset_layout_padding">0dp</dimen>
+    <dimen name="inner_frame_layout_padding">5dp</dimen>
+    <string name="BodySensors">android.permission.BODY_SENSORS</string>
+    <string name="ConnectedToHs">Connected to Health Tracking Service.</string>
+    <string name="ConnectionError">Could not connect to Health Tracking Service. Check error log.</string>
+    <string name="Details">details >></string>
+    <string name="DetailsStatusAttached">Wearable is attached.</string>
+    <string name="DetailsStatusDetached">Wearable is detached.</string>
+    <string name="DetailsStatusFindHr">Successful heart rate measurement.</string>
+    <string name="DetailsStatusLowReliability">PPG signal is weak.</string>
+    <string name="DetailsStatusMoveDetection">Wearable move detection.</string>
+    <string name="DetailsStatusNoDataFlush">flush() is called but no data.</string>
+    <string name="DetailsStatusNone">Initial heart rate measuring state.</string>
+    <string name="DetailsStatusVeryLowReliability">PPG signal is too weak.</string>
+    <string name="ExtraHr">Hr</string>
+    <string name="ExtraHrStatus">HrStatus</string>
+    <string name="ExtraIbi">Ibi</string>
+    <string name="ExtraQualityIbi">QualityIbi</string>
+    <string name="HealthPlatformVersionIsOutdated">"Health Platform version is outdated or not installed.</string>
+    <string name="HeartRate">Press the measure button.(35second)</string>
+    <string name="HeartRateDefaultValue">0</string>
+    <string name="HeartRateStatus">HR Status</string>
+    <string name="HeartRateStatusDefaultValue">0</string>
+    <string name="Ibi">IBI</string>
+    <string name="IbiDefaultValue">0</string>
+    <string name="IbiStatus">IBI Status</string>
+    <string name="IbiStatusDefaultValue">1</string>
+    <string name="MeasurementFailed">Measurement failed. Keep your watch tightly on and try again.</string>
+    <string name="NoHrSupport">Heart Rate no supported on this device.</string>
+    <string name="NoPermission">Permissions Check Failed.</string>
+    <string name="NoSpo2Support">SpO2 no supported on this device.</string>
+    <string name="NotConnected">디바이스가 연결되지 않았습니다. 연결을 확인하세요.</string>
+    <string name="PermissionDenied">권한이 거부되었습니다. 앱을 다시 시작하십시오.</string>
+    <string name="PermissionDeniedPermanently">Permissions denied. Grant permissions in watch settings and start application again.</string>
+    <string name="PermissionDeniedRationale">Body Sensors permission is required to make a measurement.</string>
+    <string name="SdkPolicyError">SDK Policy denied.</string>
+    <string name="SpO2">SpO2</string>
+    <string name="SpO2DefaultValue">0</string>
+    <string name="SpO2Value">SpO2 value: </string>
+    <string name="StartLabel">Measure</string>
+    <string name="StatusCalculating">Calculating…</string>
+    <string name="StatusCompleted">Measurement completed.</string>
+    <string name="StatusDefaultValue">Press Measure to initiate SpO2 measurement.</string>
+    <string name="StatusDeviceMoving">Device is moving.</string>
+    <string name="StatusLowSignal">Low signal quality.</string>
+    <string name="StopLabel">Stop</string>
+    <string name="TxtPercent">%</string>
+    <string name="app_name">Multisensor Tracking</string>
+    <string name="firebase_database_url" translatable="false">https://hrdata-40ce1-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">822497114400</string>
+    <string name="google_api_key" translatable="false">AIzaSyDzCwKS2F2vNbRsL1hZMxEgjYCEWjPBr3Q</string>
+    <string name="google_app_id" translatable="false">1:822497114400:android:6b4a921425bad220a87f45</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDzCwKS2F2vNbRsL1hZMxEgjYCEWjPBr3Q</string>
+    <string name="google_storage_bucket" translatable="false">hrdata-40ce1.firebasestorage.app</string>
+    <string name="project_id" translatable="false">hrdata-40ce1</string>
+</resources>
