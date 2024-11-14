@@ -22,6 +22,10 @@ public class HeartRateListener extends BaseListener {
     private static final String APP_TAG = "HeartRateListener";
     private DatabaseReference databaseReference;  // Firebase Database Reference
     private List<Integer> heartRateList = new ArrayList<>();  // 심박수 목록 (HRV 계산을 위해)
+    private List<String> timestampList = new ArrayList<>(); // 타임스탬프 목록 (첫 번째 데이터의 타임스탬프를 기록)
+    private boolean shouldUploadData = false; // 데이터 업로드 여부
+    private int dataIndex = 0;  // 데이터를 순차적으로 저장할 인덱스
+    private int errorCount = 0;  // 잘못된 심박수 데이터 카운트
 
     HeartRateListener() {
         // Firebase Database 초기화
@@ -60,31 +64,25 @@ public class HeartRateListener extends BaseListener {
     }
 
     public void updateHeartRate(DataPoint dataPoint) {
-        // 심박수 데이터 가져오기
+        if (!shouldUploadData) return; // 업로드가 활성화되지 않으면 리턴
+
         int heartRate = dataPoint.getValue(ValueKey.HeartRateSet.HEART_RATE);
+        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date());
 
-        // 현재 날짜 및 시간 형식으로 타임스탬프 생성 (밀리초 포함)
-        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault())
-                .format(new Date());
+        // 심박수가 0이면 에러로 간주
+        if (heartRate == 0) {
+            errorCount++;
+        }
 
-        // 심박수 목록에 추가 (HRV 계산을 위한 데이터 유지)
         heartRateList.add(heartRate);
+        timestampList.add(timestamp);
 
-        // HRV 계산 (기본적으로 최근 N개의 심박수를 이용한 표준편차 계산)
-        double hrv = calculateHRV();
-
-        // 데이터 구조 생성
-        Map<String, Object> heartRateData = new HashMap<>();
-        heartRateData.put("timestamp", timestamp);
-        heartRateData.put("heartRate", heartRate);
-        heartRateData.put("hrv", hrv);
-
-        // Firebase에 데이터 저장
-        databaseReference.push().setValue(heartRateData)
-                .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "Heart Rate and HRV data uploaded successfully"))
-                .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to upload Heart Rate and HRV data", e));
-
-        Log.d(APP_TAG, "Heart Rate: " + heartRate + " BPM, HRV: " + hrv + ", Timestamp: " + timestamp);
+        // 120개의 데이터가 모이면 업로드
+        if (heartRateList.size() >= 120) {
+            double hrv = calculateHRV();
+            uploadHeartRateData(hrv, timestamp);
+            resetData();  // 데이터 초기화
+        }
     }
 
     // HRV 계산: 최근 N개의 심박수 간격의 표준편차 계산
@@ -119,5 +117,41 @@ public class HeartRateListener extends BaseListener {
         variance /= intervals.size();
 
         return Math.sqrt(variance);
+    }
+
+    // 데이터를 Firebase에 업로드
+    private void uploadHeartRateData(double hrv, String timestamp) {
+        Map<String, Object> heartRateData = new HashMap<>();
+        heartRateData.put("errorCount", errorCount);
+        heartRateData.put("hrv", hrv);
+        heartRateData.put("timestamp", timestamp);
+
+        String index = String.valueOf(getNextIndex());
+
+        databaseReference.child(index).setValue(heartRateData)
+                .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "Heart Rate and HRV data uploaded successfully"))
+                .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to upload Heart Rate and HRV data", e));
+
+        Log.d(APP_TAG, "Data uploaded. HRV: " + hrv + ", ErrorCount: " + errorCount + ", Timestamp: " + timestamp);
+    }
+
+    // 순차적인 인덱스를 반환
+    private int getNextIndex() {
+        return dataIndex++;  // 순차적으로 0, 1, 2...가 반환됨
+    }
+
+    // 데이터를 초기화
+    private void resetData() {
+        heartRateList.clear();
+        timestampList.clear();
+        errorCount = 0;
+    }
+
+    public void startDataUpload() {
+        shouldUploadData = true;
+    }
+
+    public void stopDataUpload() {
+        shouldUploadData = false;
     }
 }

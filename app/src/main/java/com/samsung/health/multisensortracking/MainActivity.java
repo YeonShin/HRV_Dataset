@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MainActivity extends Activity {
 
     private final static String APP_TAG = "MainActivity";
-    private final static int MEASUREMENT_DURATION = 35000; //측정 길이
+    private final static int MEASUREMENT_DURATION = 3600000; //측정 길이
     private final static Long MEASUREMENT_TICK = 250L; // 측정 간격, ms단위
 
     private final AtomicBoolean isMeasurementRunning = new AtomicBoolean(false);
@@ -103,8 +103,7 @@ public class MainActivity extends Activity {
     private final ConnectionObserver connectionObserver = new ConnectionObserver() {
         @Override
         public void onConnectionResult(int stringResourceId) {
-            runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(stringResourceId)
-                    , Toast.LENGTH_LONG).show());
+            runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(stringResourceId), Toast.LENGTH_LONG).show());
 
             if (stringResourceId != R.string.ConnectedToHs) {
                 finish();
@@ -115,7 +114,7 @@ public class MainActivity extends Activity {
 
             heartRateListener = new HeartRateListener();
             connectionManager.initHeartRate(heartRateListener);
-            heartRateListener.startTracker();
+            // heartRateListener.startTracker(); // 여기서 제거
         }
 
         @Override
@@ -146,7 +145,7 @@ public class MainActivity extends Activity {
         butStart = binding.butStart;
         measurementProgress = binding.progressBar;
         adjustProgressBar(measurementProgress);
-
+        measurementProgress.setMax((int) (MEASUREMENT_DURATION / MEASUREMENT_TICK));
         if (ActivityCompat.checkSelfPermission(getApplicationContext(), getString(R.string.BodySensors)) == PackageManager.PERMISSION_DENIED)
             requestPermissions(new String[]{Manifest.permission.BODY_SENSORS}, 0);
         else {
@@ -210,7 +209,8 @@ public class MainActivity extends Activity {
             butStart.setText(R.string.StopLabel);
             measurementProgress.setProgress(0);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            heartRateListener.startTracker();
+            heartRateListener.startTracker(); // 측정 시작
+            heartRateListener.startDataUpload(); // 데이터 업로드 활성화
             isMeasurementRunning.set(true);
             uiUpdateThread = new Thread(countDownTimer::start);
             uiUpdateThread.start();
@@ -218,7 +218,8 @@ public class MainActivity extends Activity {
             butStart.setEnabled(false);
             isMeasurementRunning.set(false);
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            heartRateListener.stopTracker();
+            heartRateListener.stopTracker(); // 측정 종료
+            heartRateListener.stopDataUpload(); // 데이터 업로드 비활성화
             final Handler progressHandler = new Handler(Looper.getMainLooper());
             progressHandler.postDelayed(() -> {
                 butStart.setText(R.string.StartLabel);
@@ -228,6 +229,7 @@ public class MainActivity extends Activity {
             }, MEASUREMENT_TICK * 2);
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
