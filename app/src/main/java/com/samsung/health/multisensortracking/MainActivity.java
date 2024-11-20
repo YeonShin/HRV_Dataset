@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
     private HeartRateData heartRateDataLast = new HeartRateData();
     private TextView txtHeartRate;
     private TextView txtStatus;
+    private TextView txtTimeElapsed;
     private Button butStart;
     private CircularProgressIndicator measurementProgress = null;
     final CountDownTimer countDownTimer = new CountDownTimer(MEASUREMENT_DURATION, MEASUREMENT_TICK) {
@@ -48,6 +49,17 @@ public class MainActivity extends Activity {
             if (isMeasurementRunning.get()) {
                 runOnUiThread(() ->
                         measurementProgress.setProgress(measurementProgress.getProgress() + 1, true));
+
+                // 경과 시간 계산
+                long elapsedMillis = MEASUREMENT_DURATION - timeLeft;
+                long seconds = (elapsedMillis / 1000) % 60;
+                long minutes = (elapsedMillis / (1000 * 60)) % 60;
+                long hours = (elapsedMillis / (1000 * 60 * 60));
+
+                String elapsedTime = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+
+                // txtTimeElapsed에 경과 시간 설정
+                txtTimeElapsed.setText(elapsedTime);
             } else
                 cancel();
         }
@@ -64,6 +76,7 @@ public class MainActivity extends Activity {
                 txtStatus.invalidate();
                 txtHeartRate.setText(R.string.HeartRateDefaultValue);
                 txtHeartRate.invalidate();
+                txtTimeElapsed.setText("00:00:00"); // 초기화
                 butStart.setText(R.string.StartLabel);
                 measurementProgress.setProgress(measurementProgress.getMax(), true);
                 measurementProgress.invalidate();
@@ -77,8 +90,11 @@ public class MainActivity extends Activity {
             MainActivity.this.runOnUiThread(() -> {
                 heartRateDataLast = hrData;
                 Log.i(APP_TAG, "HR Status: " + hrData.status);
+
+                // 심박수 상태에 따라 텍스트 업데이트
                 if (hrData.status == HeartRateStatus.HR_STATUS_FIND_HR) {
-                    txtHeartRate.setText(String.valueOf(hrData.hr));
+                    String heartRateText = String.valueOf(hrData.hr) + " bpm";
+                    txtHeartRate.setText(heartRateText);
                     Log.i(APP_TAG, "HR: " + hrData.hr);
                 } else {
                     txtHeartRate.setText(getString(R.string.HeartRateDefaultValue));
@@ -114,7 +130,7 @@ public class MainActivity extends Activity {
 
             heartRateListener = new HeartRateListener();
             connectionManager.initHeartRate(heartRateListener);
-            // heartRateListener.startTracker(); // 여기서 제거
+//             heartRateListener.startTracker(); // 여기서 제거
         }
 
         @Override
@@ -140,8 +156,11 @@ public class MainActivity extends Activity {
         final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        txtHeartRate = binding.txtHeartRate;
+        txtHeartRate = binding.txtHeartRate;
+        txtHeartRate.setText("0 bpm"); // 초기 심박수 표시
 //        txtStatus = binding.txtStatus;
+        txtTimeElapsed = binding.txtTimeElapsed; // txtTimeElapsed 바인딩
+        txtTimeElapsed.setText("00:00:00"); // 초기값 설정
         butStart = binding.butStart;
         measurementProgress = binding.progressBar;
         adjustProgressBar(measurementProgress);
@@ -209,6 +228,13 @@ public class MainActivity extends Activity {
             butStart.setText(R.string.StopLabel);
             measurementProgress.setProgress(0);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+            // HeartRateListener에 업데이트 리스너 설정
+            heartRateListener.setHeartRateUpdateListener(heartRate -> runOnUiThread(() -> {
+                String heartRateText = heartRate + " bpm";
+                txtHeartRate.setText(heartRateText);
+            }));
+
             heartRateListener.startTracker(); // 측정 시작
             heartRateListener.startDataUpload(); // 데이터 업로드 활성화
             isMeasurementRunning.set(true);

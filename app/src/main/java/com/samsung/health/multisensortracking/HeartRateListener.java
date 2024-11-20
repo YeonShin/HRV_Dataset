@@ -18,6 +18,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ArrayList;
 
+
+
 public class HeartRateListener extends BaseListener {
     private static final String APP_TAG = "HeartRateListener";
     private DatabaseReference databaseReference;  // Firebase Database Reference
@@ -28,6 +30,16 @@ public class HeartRateListener extends BaseListener {
     private int measureCount = 0;
     private int errorCount = 0;  // 잘못된 심박수 데이터 카운트
     private List<Double> rrIntervalList = new ArrayList<>();  // R-R 간격 목록
+
+    private HeartRateUpdateListener updateListener;
+
+    public void setHeartRateUpdateListener(HeartRateUpdateListener listener) {
+        this.updateListener = listener;
+    }
+
+    public interface HeartRateUpdateListener {
+        void onHeartRateUpdate(int heartRate);
+    }
 
 
     HeartRateListener() {
@@ -70,6 +82,11 @@ public class HeartRateListener extends BaseListener {
         if (!shouldUploadData) return; // 업로드가 활성화되지 않으면 리턴
 
         int heartRate = dataPoint.getValue(ValueKey.HeartRateSet.HEART_RATE);
+
+        if (updateListener != null) {
+            updateListener.onHeartRateUpdate(heartRate); // MainActivity에 업데이트 전달
+        }
+
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date());
 
         // R-R 간격 계산
