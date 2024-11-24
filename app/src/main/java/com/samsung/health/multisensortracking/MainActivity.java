@@ -187,14 +187,14 @@ public class MainActivity extends Activity {
             measurementProgress.setProgress(0);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-            // HeartRateListener에 업데이트 리스너 설정
+            // HeartRateListener 초기화 및 업로드 활성화
             heartRateListener.setHeartRateUpdateListener(heartRate -> runOnUiThread(() -> {
                 String heartRateText = heartRate + " bpm";
                 txtHeartRate.setText(heartRateText);
             }));
-
             heartRateListener.startTracker(); // 측정 시작
             heartRateListener.startDataUpload(); // 데이터 업로드 활성화
+
             databaseReference.removeValue()
                     .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "Firebase data cleared successfully"))
                     .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to clear Firebase data", e));
@@ -203,7 +203,7 @@ public class MainActivity extends Activity {
             uiUpdateThread = new Thread(countDownTimer::start);
             uiUpdateThread.start();
         } else {
-            butStart.setEnabled(false);
+//            butStart.setEnabled(false);
             isMeasurementRunning.set(false);
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             heartRateListener.stopTracker(); // 측정 종료

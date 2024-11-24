@@ -91,36 +91,32 @@ public class HeartRateListener extends BaseListener {
         // ValueKey를 사용하여 DataPoint에서 심박수 데이터를 가져옵니다.
         int heartRate = dataPoint.getValue(ValueKey.HeartRateSet.HEART_RATE);
 
+        // 현재 시간을 "yyyy-MM-dd HH:mm:ss.SSS" 형식으로 저장
+        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date());
+
+        double rrInterval = 0;
         // UI 업데이트를 위해 MainActivity에 데이터 전달
         if (updateListener != null) {
             updateListener.onHeartRateUpdate(heartRate);
         }
-
-        // 현재 시간을 "yyyy-MM-dd HH:mm:ss.SSS" 형식으로 저장
-        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date());
-
-        // R-R 간격 계산 (1분(60000ms) 나누기 심박수)
-        double rrInterval = 60000.0 / heartRate;
-
         // 심박수가 비정상적이면(너무 낮거나 높음) 에러로 처리
-        if (heartRate <= 40 || heartRate >= 180 || rrInterval < 300 || rrInterval > 2000) {
+        if (heartRate <= 40 || heartRate >= 180) {
             errorCount++;
-            measureCount++;
-            return; // 데이터 저장하지 않고 종료
+        } else {
+            // R-R 간격 계산 (1분(60000ms) 나누기 심박수)
+            rrInterval = 60000.0 / heartRate;
+            // 동기화된 방식으로 두 리스트에 추가
+            rrIntervalList.add(rrInterval);
+            timestampList.add(timestamp);
         }
 
-
-
-        // 유효한 데이터를 리스트에 저장
-        heartRateList.add(heartRate);
-        rrIntervalList.add(rrInterval);
-        timestampList.add(timestamp);
         measureCount++;
 
         // 일정 데이터가 모이면 Firebase에 업로드
-        if (measureCount >= 10) { // 120개의 데이터가 모이면 업로드
-            double hrv = calculateHRV(); // HRV 계산
-            uploadHeartRateData(hrv, timestamp);
+        if (measureCount >= 120) { // 120개의 데이터가 모이면 업로드
+//            double hrv = calculateHRV(); // HRV 계산
+//            uploadHeartRateData(hrv, timestamp);
+            uploadRrDataToFirebase();
             resetData(); // 데이터 초기화
         }
     }
@@ -196,6 +192,55 @@ public class HeartRateListener extends BaseListener {
                 ", Timestamp: " + timestamp);
     }
 
+    private void uploadRrDataToFirebase() {
+//        if (rrIntervalList.isEmpty() || timestampList.isEmpty()) {
+//            Log.e(APP_TAG, "No data to upload.");
+//            return; // 데이터가 없으면 업로드하지 않음
+//        }
+//
+//        if (rrIntervalList.size() != timestampList.size()) {
+//            Log.e(APP_TAG, "Mismatch in rrIntervalList and timestampList sizes!");
+//            Log.e(APP_TAG, "rrIntervalList size: " + rrIntervalList.size());
+//            Log.e(APP_TAG, "timestampList size: " + timestampList.size());
+//            return; // 리스트 크기가 다르면 업로드하지 않음
+//        }
+
+        // 2분 간격의 데이터 시작 타임스탬프 (리스트의 첫 번째 타임스탬프 사용)
+//        String startTimestamp = timestampList.get(0);
+        String startTimestamp = timestampList.isEmpty() ?
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date()) :
+                timestampList.get(0);
+
+        // Firebase에서 허용되지 않는 문자(`.` 등)를 안전한 문자로 치환
+        String validTimestampKey = startTimestamp.replace(":", "-").replace(".", "-");
+
+        // RR 간격 데이터를 Firebase에 업로드하기 위한 리스트 구성
+        List<Map<String, Object>> validData = new ArrayList<>();
+        for (int i = 0; i < rrIntervalList.size(); i++) {
+            Map<String, Object> data = new HashMap<>();
+            data.put("rrInterval", rrIntervalList.get(i)); // RR 간격 값
+            data.put("timestamp", timestampList.get(i));  // 해당 데이터의 타임스탬프
+            validData.add(data);
+        }
+
+        // Firebase 업로드 데이터 구조 생성
+        Map<String, Object> firebaseData = new HashMap<>();
+        firebaseData.put("rrIntervals", validData);      // RR 간격 데이터 리스트
+        firebaseData.put("errorCount", errorCount);     // 에러 카운트
+
+        // Firebase에 업로드 (validTimestampKey를 노드 이름으로 사용)
+        databaseReference.child(validTimestampKey).setValue(firebaseData)
+                .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "RR Interval data uploaded successfully"))
+                .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to upload RR Interval data", e));
+
+        // 로그 출력 (디버깅용)
+        Log.d(APP_TAG, "Data uploaded with start timestamp: " + validTimestampKey +
+                ", rrIntervals size: " + validData.size() +
+                ", errorCount: " + errorCount);
+    }
+
+
+
 
 
     // 순차적인 인덱스를 반환
@@ -205,10 +250,10 @@ public class HeartRateListener extends BaseListener {
 
     // 데이터를 초기화
     private void resetData() {
-        heartRateList.clear();
-        timestampList.clear();
-        errorCount = 0;
-        measureCount = 0;
+        rrIntervalList.clear();  // R-R 간격 리스트 초기화
+        timestampList.clear();   // 타임스탬프 리스트 초기화
+        errorCount = 0;          // 에러 카운트 초기화
+        measureCount = 0;        // 측정 카운트 초기화
     }
 
     public void startDataUpload() {
