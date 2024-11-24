@@ -19,7 +19,8 @@ package com.samsung.health.multisensortracking;
 import com.samsung.android.service.health.tracking.HealthTrackerException;
 
 public interface ConnectionObserver {
-    void onConnectionResult(int stringResourceId);
+    // 연결 상태 결과 처리
+    void onConnectionResult(int stringResourceId); // 연결 결과(성공 또는 실패) 알림
 
-    void onError(HealthTrackerException e);
+    void onError(HealthTrackerException e); // 연결 중 발생한 예외 알림
 }

@@ -31,6 +31,7 @@ public class HeartRateListener extends BaseListener {
     private int errorCount = 0;  // 잘못된 심박수 데이터 카운트
     private List<Double> rrIntervalList = new ArrayList<>();  // R-R 간격 목록
 
+    // 업데이트 리스너: 심박수 데이터를 UI나 다른 컴포넌트로 전달
     private HeartRateUpdateListener updateListener;
 
     public void setHeartRateUpdateListener(HeartRateUpdateListener listener) {
@@ -50,9 +51,14 @@ public class HeartRateListener extends BaseListener {
         clearExistingData();
 
         // HealthTracker 이벤트 리스너
+        // Samsung HealthTracker에서 발생하는 이벤트를 처리하기 위해 TrackerEventListener를 구현합니다.
         final HealthTracker.TrackerEventListener trackerEventListener = new HealthTracker.TrackerEventListener() {
             @Override
             public void onDataReceived(@NonNull List<DataPoint> list) {
+                // 헬스 트래커에서 데이터를 수신했을 때 호출됩니다.
+                // 매개변수 `list`는 수신된 DataPoint 객체들의 리스트입니다.
+
+                // 수신된 각 DataPoint를 처리하기 위한 반복문
                 for (DataPoint data : list) {
                     updateHeartRate(data);
                 }
@@ -73,6 +79,7 @@ public class HeartRateListener extends BaseListener {
     }
 
     private void clearExistingData() {
+        // Firebase 데이터베이스에서 기존 데이터 삭제
         databaseReference.removeValue()
                 .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "All existing Heart Rate data cleared"))
                 .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to clear existing Heart Rate data", e));
@@ -81,94 +88,84 @@ public class HeartRateListener extends BaseListener {
     public void updateHeartRate(DataPoint dataPoint) {
         if (!shouldUploadData) return; // 업로드가 활성화되지 않으면 리턴
 
+        // ValueKey를 사용하여 DataPoint에서 심박수 데이터를 가져옵니다.
         int heartRate = dataPoint.getValue(ValueKey.HeartRateSet.HEART_RATE);
 
+        // UI 업데이트를 위해 MainActivity에 데이터 전달
         if (updateListener != null) {
-            updateListener.onHeartRateUpdate(heartRate); // MainActivity에 업데이트 전달
+            updateListener.onHeartRateUpdate(heartRate);
         }
 
+        // 현재 시간을 "yyyy-MM-dd HH:mm:ss.SSS" 형식으로 저장
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date());
 
-        // R-R 간격 계산
+        // R-R 간격 계산 (1분(60000ms) 나누기 심박수)
         double rrInterval = 60000.0 / heartRate;
 
-        // 심박수가 0이면 에러로 간주
+        // 심박수가 비정상적이면(너무 낮거나 높음) 에러로 처리
         if (heartRate <= 40 || heartRate >= 180 || rrInterval < 300 || rrInterval > 2000) {
             errorCount++;
             measureCount++;
-            return;
+            return; // 데이터 저장하지 않고 종료
         }
 
 
 
-        // 데이터 저장
+        // 유효한 데이터를 리스트에 저장
         heartRateList.add(heartRate);
         rrIntervalList.add(rrInterval);
         timestampList.add(timestamp);
         measureCount++;
 
-        // 데이터 업로드
-        if (measureCount >= 120) { // 10개의 데이터가 모이면 업로드
-            double hrv = calculateHRV();
-            uploadHeartRateData(hrv, heartRate, rrInterval, timestamp);
+        // 일정 데이터가 모이면 Firebase에 업로드
+        if (measureCount >= 10) { // 120개의 데이터가 모이면 업로드
+            double hrv = calculateHRV(); // HRV 계산
+            uploadHeartRateData(hrv, timestamp);
             resetData(); // 데이터 초기화
         }
     }
 
 
-    // HRV 계산: 최근 N개의 심박수 간격의 표준편차 계산
+    // HRV 계산: 최근 N개의 심박수 간격(RR Interval)의 표준편차 또는 RMSSD 방식으로 계산
     private double calculateHRV() {
         if (rrIntervalList.size() < 2) {
-            return 0.0;  // 유효한 데이터가 부족하면 0 반환
+            return 0.0;  // 유효한 데이터가 부족하면 HRV 값으로 0을 반환
         }
 
-        // 평균 계산
-        double mean = rrIntervalList.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+        // 평균 계산: RR 간격 리스트의 평균값을 계산
+        double mean = rrIntervalList.stream()
+                .mapToDouble(Double::doubleValue)
+                .average()
+                .orElse(0.0); // 데이터가 없으면 기본값 0.0 반환
 
-        // 분산 계산 및 표준편차 반환
+        // 분산 계산: RR 간격 값에서 평균을 뺀 값의 제곱을 이용하여 분산 계산
         double variance = rrIntervalList.stream()
                 .mapToDouble(interval -> Math.pow(interval - mean, 2))
                 .average()
-                .orElse(0.0);
+                .orElse(0.0); // 데이터가 없으면 기본값 0.0 반환
 
-        return Math.sqrt(variance); // SDNN 값 반환
+        return Math.sqrt(variance); // 표준편차(SDNN)를 계산하여 반환
 
-        // RMSSD 방식
-//        if (rrIntervalList.size() < 2) {
-//            return 0.0;  // 유효한 RR 간격이 2개 이상이어야 RMSSD 계산 가능
-//        }
+        // RMSSD(Root Mean Square of Successive Differences) 방식 계산
+//    if (rrIntervalList.size() < 2) {
+//        return 0.0;  // 유효한 RR 간격이 2개 이상이어야 RMSSD 계산 가능
+//    }
 //
-//        double sumSquaredDifferences = 0.0;
+//    double sumSquaredDifferences = 0.0;
 //
-//        // 연속된 R-R 간격 차이의 제곱합 계산
-//        for (int i = 1; i < rrIntervalList.size(); i++) {
-//            double diff = rrIntervalList.get(i) - rrIntervalList.get(i - 1);
-//            sumSquaredDifferences += Math.pow(diff, 2);
-//        }
+//    // 연속된 RR 간격 차이의 제곱합 계산
+//    for (int i = 1; i < rrIntervalList.size(); i++) {
+//        double diff = rrIntervalList.get(i) - rrIntervalList.get(i - 1);
+//        sumSquaredDifferences += Math.pow(diff, 2);
+//    }
 //
-//        // 평균의 제곱근 반환
-//        double meanSquaredDifferences = sumSquaredDifferences / (rrIntervalList.size() - 1);
-//        return Math.sqrt(meanSquaredDifferences);
+//    // 평균의 제곱근을 계산하여 RMSSD 반환
+//    double meanSquaredDifferences = sumSquaredDifferences / (rrIntervalList.size() - 1);
+//    return Math.sqrt(meanSquaredDifferences);
     }
 
-    // 표준편차 계산
-    private double calculateStandardDeviation(List<Double> intervals) {
-        if (intervals.size() < 2) {
-            return 0.0; // 데이터가 충분하지 않으면 0 반환
-        }
-
-        double mean = intervals.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
-
-        double variance = intervals.stream()
-                .mapToDouble(interval -> Math.pow(interval - mean, 2))
-                .average()
-                .orElse(0.0);
-
-        return Math.sqrt(variance); // 표준편차 반환
-    }
-
-    private void uploadHeartRateData(double hrv, int lastHeartRate, double lastRRInterval, String timestamp) {
-        // 최저 및 최대 값 계산
+    private void uploadHeartRateData(double hrv, String timestamp) {
+        // 심박수 및 RR 간격의 최저 및 최대 값을 계산
         int minHeartRate = heartRateList.stream().min(Integer::compare).orElse(0); // 심박수의 최저값
         int maxHeartRate = heartRateList.stream().max(Integer::compare).orElse(0); // 심박수의 최대값
         double minRRInterval = rrIntervalList.stream().min(Double::compare).orElse(0.0); // R-R 간격의 최저값

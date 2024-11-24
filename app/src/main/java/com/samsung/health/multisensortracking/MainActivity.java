@@ -20,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.samsung.android.service.health.tracking.HealthTrackerException;
 import com.samsung.health.multisensortracking.databinding.ActivityMainBinding;
 
@@ -28,25 +30,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MainActivity extends Activity {
 
     private final static String APP_TAG = "MainActivity";
-    private final static int MEASUREMENT_DURATION = 3600000; //측정 길이
+    private final static int MEASUREMENT_DURATION = 3600000; // 측정 길이(1시간)
     private final static Long MEASUREMENT_TICK = 250L; // 측정 간격, ms단위
 
-    private final AtomicBoolean isMeasurementRunning = new AtomicBoolean(false);
+    private final AtomicBoolean isMeasurementRunning = new AtomicBoolean(false); // 측정 실행 여부 플래그
     Thread uiUpdateThread = null;
-    private ConnectionManager connectionManager;
-    private HeartRateListener heartRateListener = null;
-    private boolean connected = false;
-    private boolean permissionGranted = false;
-    private HeartRateData heartRateDataLast = new HeartRateData();
-    private TextView txtHeartRate;
-    private TextView txtStatus;
-    private TextView txtTimeElapsed;
-    private Button butStart;
-    private CircularProgressIndicator measurementProgress = null;
+    private ConnectionManager connectionManager; // HealthTrackingService와 연결 관리
+    private HeartRateListener heartRateListener = null;// 심박수 리스너
+    private boolean connected = false; // 서비스 연결 여부
+    private boolean permissionGranted = false; // 권한 부여 여부
+
+    private TextView txtHeartRate; // 심박수 표시 텍스트뷰
+    private TextView txtTimeElapsed; // 경과 시간 표시 텍스트뷰
+    private Button butStart; // 시작/중지 버튼
+    private CircularProgressIndicator measurementProgress = null; // 측정 진행 표시기
+    private DatabaseReference databaseReference;
+
+
+    // 측정 타이머
     final CountDownTimer countDownTimer = new CountDownTimer(MEASUREMENT_DURATION, MEASUREMENT_TICK) {
         @Override
         public void onTick(long timeLeft) {
             if (isMeasurementRunning.get()) {
+                // 측정 진행 UI 업데이트
                 runOnUiThread(() ->
                         measurementProgress.setProgress(measurementProgress.getProgress() + 1, true));
 
@@ -68,104 +74,68 @@ public class MainActivity extends Activity {
         public void onFinish() {
             if (!isMeasurementRunning.get())
                 return;
-            Log.i(APP_TAG, "Failed measurement");
+
+            // 측정 종료 처리
             heartRateListener.stopTracker();
             isMeasurementRunning.set(false);
             runOnUiThread(() -> {
-                txtStatus.setText(R.string.MeasurementFailed);
-                txtStatus.invalidate();
                 txtHeartRate.setText(R.string.HeartRateDefaultValue);
-                txtHeartRate.invalidate();
                 txtTimeElapsed.setText("00:00:00"); // 초기화
                 butStart.setText(R.string.StartLabel);
                 measurementProgress.setProgress(measurementProgress.getMax(), true);
-                measurementProgress.invalidate();
             });
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
     };
-    final TrackerDataObserver trackerDataObserver = new TrackerDataObserver() {
-        @Override
-        public void onHeartRateTrackerDataChanged(HeartRateData hrData) {
-            MainActivity.this.runOnUiThread(() -> {
-                heartRateDataLast = hrData;
-                Log.i(APP_TAG, "HR Status: " + hrData.status);
 
-                // 심박수 상태에 따라 텍스트 업데이트
-                if (hrData.status == HeartRateStatus.HR_STATUS_FIND_HR) {
-                    String heartRateText = String.valueOf(hrData.hr) + " bpm";
-                    txtHeartRate.setText(heartRateText);
-                    Log.i(APP_TAG, "HR: " + hrData.hr);
-                } else {
-                    txtHeartRate.setText(getString(R.string.HeartRateDefaultValue));
-                }
-            });
-        }
-
-        // SpO2 관련 메서드 빈 구현
-        @Override
-        public void onSpO2TrackerDataChanged(int status, int spO2Value) {
-            // SpO2와 관련된 로직 제거, 빈 구현
-        }
-
-        @Override
-        public void onError(int errorResourceId) {
-            runOnUiThread(() ->
-                    Toast.makeText(getApplicationContext(), getString(errorResourceId), Toast.LENGTH_LONG).show());
-            countDownTimer.onFinish();
-        }
-    };
-
+    // 연결 상태 옵저버
     private final ConnectionObserver connectionObserver = new ConnectionObserver() {
         @Override
         public void onConnectionResult(int stringResourceId) {
-            runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(stringResourceId), Toast.LENGTH_LONG).show());
+            runOnUiThread(() ->
+                    Toast.makeText(getApplicationContext(), getString(stringResourceId), Toast.LENGTH_LONG).show());
 
             if (stringResourceId != R.string.ConnectedToHs) {
-                finish();
+                finish(); // 연결 실패 시 종료
             }
 
-            connected = true;
-            TrackerDataNotifier.getInstance().addObserver(trackerDataObserver);
-
-            heartRateListener = new HeartRateListener();
-            connectionManager.initHeartRate(heartRateListener);
-//             heartRateListener.startTracker(); // 여기서 제거
+            connected = true; // 연결 성공
+            heartRateListener = new HeartRateListener();// 리스너 초기화
+            connectionManager.initHeartRate(heartRateListener); // 심박수 초기화
         }
 
         @Override
         public void onError(HealthTrackerException e) {
-            if (e.getErrorCode() == HealthTrackerException.OLD_PLATFORM_VERSION || e.getErrorCode() == HealthTrackerException.PACKAGE_NOT_INSTALLED)
-                runOnUiThread(() -> Toast.makeText(getApplicationContext()
-                        , getString(R.string.HealthPlatformVersionIsOutdated), Toast.LENGTH_LONG).show());
             if (e.hasResolution()) {
-                e.resolve(MainActivity.this);
+                e.resolve(MainActivity.this); // 문제 해결
             } else {
-                runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(R.string.ConnectionError)
-                        , Toast.LENGTH_LONG).show());
-                Log.e(APP_TAG, "Could not connect to Health Tracking Service: " + e.getMessage());
+                Toast.makeText(getApplicationContext(), getString(R.string.ConnectionError), Toast.LENGTH_LONG).show();
+                Log.e(APP_TAG, "Connection error: " + e.getMessage());
+                finish();
             }
-            finish();
         }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        databaseReference = FirebaseDatabase.getInstance().getReference("HeartRateData");
 
+        // View 초기화
         final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         txtHeartRate = binding.txtHeartRate;
-        txtHeartRate.setText("0 bpm"); // 초기 심박수 표시
-//        txtStatus = binding.txtStatus;
         txtTimeElapsed = binding.txtTimeElapsed; // txtTimeElapsed 바인딩
-        txtTimeElapsed.setText("00:00:00"); // 초기값 설정
         butStart = binding.butStart;
         measurementProgress = binding.progressBar;
+
         adjustProgressBar(measurementProgress);
         measurementProgress.setMax((int) (MEASUREMENT_DURATION / MEASUREMENT_TICK));
-        if (ActivityCompat.checkSelfPermission(getApplicationContext(), getString(R.string.BodySensors)) == PackageManager.PERMISSION_DENIED)
+
+
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), getString(R.string.BodySensors))
+                == PackageManager.PERMISSION_DENIED)
             requestPermissions(new String[]{Manifest.permission.BODY_SENSORS}, 0);
         else {
             permissionGranted = true;
@@ -179,7 +149,6 @@ public class MainActivity extends Activity {
         super.onDestroy();
         if (heartRateListener != null)
             heartRateListener.stopTracker();
-        TrackerDataNotifier.getInstance().removeObserver(trackerDataObserver);
         if (connectionManager != null) {
             connectionManager.disconnect();
         }
@@ -206,18 +175,7 @@ public class MainActivity extends Activity {
         progressBar.setIndicatorSize(progressBarSize);
     }
 
-    public void onDetails(View view) {
-        if (isPermissionsOrConnectionInvalid()) {
-            return;
-        }
 
-        final Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra(getString(R.string.ExtraHr), heartRateDataLast.hr);
-        intent.putExtra(getString(R.string.ExtraHrStatus), heartRateDataLast.status);
-        intent.putExtra(getString(R.string.ExtraIbi), heartRateDataLast.ibi);
-        intent.putExtra(getString(R.string.ExtraQualityIbi), heartRateDataLast.qIbi);
-        startActivity(intent);
-    }
 
     public void performMeasurement(View view) {
         if (isPermissionsOrConnectionInvalid()) {
@@ -237,6 +195,10 @@ public class MainActivity extends Activity {
 
             heartRateListener.startTracker(); // 측정 시작
             heartRateListener.startDataUpload(); // 데이터 업로드 활성화
+            databaseReference.removeValue()
+                    .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "Firebase data cleared successfully"))
+                    .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to clear Firebase data", e));
+
             isMeasurementRunning.set(true);
             uiUpdateThread = new Thread(countDownTimer::start);
             uiUpdateThread.start();
@@ -246,10 +208,10 @@ public class MainActivity extends Activity {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
             heartRateListener.stopTracker(); // 측정 종료
             heartRateListener.stopDataUpload(); // 데이터 업로드 비활성화
+
             final Handler progressHandler = new Handler(Looper.getMainLooper());
             progressHandler.postDelayed(() -> {
                 butStart.setText(R.string.StartLabel);
-                txtStatus.setText(R.string.StatusDefaultValue);
                 measurementProgress.setProgress(0);
                 butStart.setEnabled(true);
             }, MEASUREMENT_TICK * 2);
