@@ -117,7 +117,6 @@ public class HeartRateListener extends BaseListener {
 //            double hrv = calculateHRV(); // HRV 계산
 //            uploadHeartRateData(hrv, timestamp);
             uploadRrDataToFirebase();
-            resetData(); // 데이터 초기화
         }
     }
 
@@ -237,6 +236,7 @@ public class HeartRateListener extends BaseListener {
         Log.d(APP_TAG, "Data uploaded with start timestamp: " + validTimestampKey +
                 ", rrIntervals size: " + validData.size() +
                 ", errorCount: " + errorCount);
+        resetData();
     }
 
 
