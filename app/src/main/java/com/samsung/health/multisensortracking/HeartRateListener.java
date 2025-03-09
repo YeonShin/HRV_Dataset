@@ -4,11 +4,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.samsung.android.service.health.tracking.HealthTracker;
 import com.samsung.android.service.health.tracking.data.DataPoint;
 import com.samsung.android.service.health.tracking.data.ValueKey;
@@ -93,7 +90,6 @@ public class HeartRateListener extends BaseListener {
 
         // ValueKey를 사용하여 DataPoint에서 심박수 데이터를 가져옵니다.
         int heartRate = dataPoint.getValue(ValueKey.HeartRateSet.HEART_RATE);
-        boolean isError = false;
 
         // 현재 시간을 "yyyy-MM-dd HH:mm:ss.SSS" 형식으로 저장
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date());
@@ -106,24 +102,22 @@ public class HeartRateListener extends BaseListener {
         // 심박수가 비정상적이면(너무 낮거나 높음) 에러로 처리
         if (heartRate <= 40 || heartRate >= 150) {
             errorCount++;
-            isError = true;
         } else {
             // R-R 간격 계산 (1분(60000ms) 나누기 심박수)
             rrInterval = 60000.0 / heartRate;
             // 동기화된 방식으로 두 리스트에 추가
-//            rrIntervalList.add(rrInterval);
-//            timestampList.add(timestamp);
+            rrIntervalList.add(rrInterval);
+            timestampList.add(timestamp);
         }
-        uploadRrDataToFirebase(rrInterval, timestamp, isError);
 
-//        measureCount++;
+        measureCount++;
 
         // 일정 데이터가 모이면 Firebase에 업로드
-//        if (measureCount >= 120) { // 120개의 데이터가 모이면 업로드
-////            double hrv = calculateHRV(); // HRV 계산
-////            uploadHeartRateData(hrv, timestamp);
-//            uploadRrDataToFirebase();
-//        }
+        if (measureCount >= 120) { // 120개의 데이터가 모이면 업로드
+//            double hrv = calculateHRV(); // HRV 계산
+//            uploadHeartRateData(hrv, timestamp);
+            uploadRrDataToFirebase();
+        }
     }
 
 
@@ -197,7 +191,7 @@ public class HeartRateListener extends BaseListener {
                 ", Timestamp: " + timestamp);
     }
 
-    private void uploadRrDataToFirebase(double rrInterval, String timestamp, boolean isError) {
+    private void uploadRrDataToFirebase() {
 //        if (rrIntervalList.isEmpty() || timestampList.isEmpty()) {
 //            Log.e(APP_TAG, "No data to upload.");
 //            return; // 데이터가 없으면 업로드하지 않음
@@ -212,76 +206,37 @@ public class HeartRateListener extends BaseListener {
 
         // 2분 간격의 데이터 시작 타임스탬프 (리스트의 첫 번째 타임스탬프 사용)
 //        String startTimestamp = timestampList.get(0);
-//        String startTimestamp = timestampList.isEmpty() ?
-//                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date()) :
-//                timestampList.get(0);
+        String startTimestamp = timestampList.isEmpty() ?
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.getDefault()).format(new Date()) :
+                timestampList.get(0);
 
         // Firebase에서 허용되지 않는 문자(`.` 등)를 안전한 문자로 치환
-//        String validTimestampKey = startTimestamp.replace(":", "-").replace(".", "-");
+        String validTimestampKey = startTimestamp.replace(":", "-").replace(".", "-");
 
         // RR 간격 데이터를 Firebase에 업로드하기 위한 리스트 구성
-//        List<Map<String, Object>> validData = new ArrayList<>();
-//        for (int i = 0; i < rrIntervalList.size(); i++) {
-//            Map<String, Object> data = new HashMap<>();
-//            data.put("rrInterval", rrIntervalList.get(i)); // RR 간격 값
-//            data.put("timestamp", timestampList.get(i));  // 해당 데이터의 타임스탬프
-//            validData.add(data);
-//        }
+        List<Map<String, Object>> validData = new ArrayList<>();
+        for (int i = 0; i < rrIntervalList.size(); i++) {
+            Map<String, Object> data = new HashMap<>();
+            data.put("rrInterval", rrIntervalList.get(i)); // RR 간격 값
+            data.put("timestamp", timestampList.get(i));  // 해당 데이터의 타임스탬프
+            validData.add(data);
+        }
 
         // Firebase 업로드 데이터 구조 생성
-//        Map<String, Object> firebaseData = new HashMap<>();
-//        firebaseData.put("rrIntervals", validData);      // RR 간격 데이터 리스트
-//        firebaseData.put("errorCount", errorCount);     // 에러 카운트
-
-        Map<String ,Object> singleData = new HashMap<>();
-        singleData.put("rrInterval", rrInterval);
-        singleData.put("timestamp", timestamp);
-        singleData.put("isError", isError);
+        Map<String, Object> firebaseData = new HashMap<>();
+        firebaseData.put("rrIntervals", validData);      // RR 간격 데이터 리스트
+        firebaseData.put("errorCount", errorCount);     // 에러 카운트
 
         // Firebase에 업로드 (validTimestampKey를 노드 이름으로 사용)
-//        databaseReference.child(validTimestampKey).setValue(firebaseData)
-//                .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "RR Interval data uploaded successfully"))
-//                .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to upload RR Interval data", e));
-
-        // 매 초마다 rr간격 업로드하고 오래된 데이터는 삭제
-        databaseReference.push().setValue(singleData) // push를 사용하여 고유 키 생성
-                .addOnSuccessListener(aVoid -> {
-                    Log.d(APP_TAG, "Single RR Interval data uploaded successfully");
-                    removeOldData();
-                })
-                .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to upload Single RR Interval data", e));
-
+        databaseReference.child(validTimestampKey).setValue(firebaseData)
+                .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "RR Interval data uploaded successfully"))
+                .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to upload RR Interval data", e));
 
         // 로그 출력 (디버깅용)
-//        Log.d(APP_TAG, "Data uploaded with start timestamp: " + validTimestampKey +
-//                ", rrIntervals size: " + validData.size() +
-//                ", errorCount: " + errorCount);
-//        resetData();
-    }
-
-    private void removeOldData() {
-        // 10분 전의 타임스탬프 계산
-        long tenMinutesAgo = System.currentTimeMillis() - 120 * 1000;
-        String cutoffTimestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm :ss.SSS", Locale.getDefault()).format(new Date(tenMinutesAgo));
-
-        // Firebase 쿼리로 오래된 데이터 검색 및 삭제
-        databaseReference.orderByChild("timestamp")
-                .endAt(cutoffTimestamp) // 2분 5초 전까지의 데이터 조회
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot child : snapshot.getChildren()) {
-                            child.getRef().removeValue() // 오래된 데이터 삭제
-                                    .addOnSuccessListener(aVoid -> Log.d(APP_TAG, "Old data removed: " + child.getKey()))
-                                    .addOnFailureListener(e -> Log.e(APP_TAG, "Failed to remove old data", e));
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Log.e(APP_TAG, "Failed to query old data for removal", error.toException());
-                    }
-                });
+        Log.d(APP_TAG, "Data uploaded with start timestamp: " + validTimestampKey +
+                ", rrIntervals size: " + validData.size() +
+                ", errorCount: " + errorCount);
+        resetData();
     }
 
 
