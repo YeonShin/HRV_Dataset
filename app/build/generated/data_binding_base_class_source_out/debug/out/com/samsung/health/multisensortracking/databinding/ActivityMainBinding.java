@@ -38,19 +38,28 @@ public final class ActivityMainBinding implements ViewBinding {
   public final CircularProgressIndicator progressBar;
 
   @NonNull
+  public final TextView txtHeartRate;
+
+  @NonNull
   public final TextView txtHeartRateName;
+
+  @NonNull
+  public final TextView txtTimeElapsed;
 
   private ActivityMainBinding(@NonNull BoxInsetLayout rootView, @NonNull Button butStart,
       @NonNull Guideline guidelineCenter, @NonNull Guideline guidelineLeft,
       @NonNull Guideline guidelineRight, @NonNull CircularProgressIndicator progressBar,
-      @NonNull TextView txtHeartRateName) {
+      @NonNull TextView txtHeartRate, @NonNull TextView txtHeartRateName,
+      @NonNull TextView txtTimeElapsed) {
     this.rootView = rootView;
     this.butStart = butStart;
     this.guidelineCenter = guidelineCenter;
     this.guidelineLeft = guidelineLeft;
     this.guidelineRight = guidelineRight;
     this.progressBar = progressBar;
+    this.txtHeartRate = txtHeartRate;
     this.txtHeartRateName = txtHeartRateName;
+    this.txtTimeElapsed = txtTimeElapsed;
   }
 
   @Override
@@ -110,14 +119,27 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.txtHeartRate;
+      TextView txtHeartRate = ViewBindings.findChildViewById(rootView, id);
+      if (txtHeartRate == null) {
+        break missingId;
+      }
+
       id = R.id.txtHeartRateName;
       TextView txtHeartRateName = ViewBindings.findChildViewById(rootView, id);
       if (txtHeartRateName == null) {
         break missingId;
       }
 
+      id = R.id.txtTimeElapsed;
+      TextView txtTimeElapsed = ViewBindings.findChildViewById(rootView, id);
+      if (txtTimeElapsed == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((BoxInsetLayout) rootView, butStart, guidelineCenter,
-          guidelineLeft, guidelineRight, progressBar, txtHeartRateName);
+          guidelineLeft, guidelineRight, progressBar, txtHeartRate, txtHeartRateName,
+          txtTimeElapsed);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

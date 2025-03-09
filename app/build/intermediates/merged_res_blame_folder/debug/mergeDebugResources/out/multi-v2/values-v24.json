@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.samsung.health.multisensortracking.app-mergeDebugResources-37:/values-v24/values-v24.xml",
+            "outputFile": "com.samsung.health.multisensortracking.app-mergeDebugResources-40:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\66d9d10b3f6e69ea824946a2e20560e8\\transformed\\wear-1.3.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\yeonn\\.gradle\\caches\\8.9\\transforms\\b190aee9dd258c94560e10c1eab639a4\\transformed\\wear-1.3.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\05c20d73e9c3ecc35f2d0a56ac35d6cb\\transformed\\material-1.12.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\yeonn\\.gradle\\caches\\8.9\\transforms\\7144a1bc01a5893cf6e15e2210627b81\\transformed\\material-1.12.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -42,17 +42,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\468e675c689c771860654454c23bfee4\\transformed\\appcompat-1.7.0\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\ec623bbaf3b45fb543a876a52c814156\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\yeonn\\.gradle\\caches\\8.9\\transforms\\223b615cf8d8737f7ea26821c6bbe780\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -66,6 +56,16 @@
                         "startOffsets": "1547,1613,1674,1740",
                         "endColumns": "65,60,65,66",
                         "endOffsets": "1608,1669,1735,1802"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\yeonn\\.gradle\\caches\\8.9\\transforms\\a06f8dcb1b0a90b2d9e832633f1aa103\\transformed\\appcompat-1.7.0\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
                     }
                 }
             ]

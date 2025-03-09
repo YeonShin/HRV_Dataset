@@ -9,233 +9,307 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.WAKE_LOCK" />
-11-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:5:5-68
-11-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:5:22-65
+11-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:5:5-68
+11-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:5:22-65
 12    <uses-permission android:name="android.permission.BODY_SENSORS" />
-12-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:6:5-71
-12-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:6:22-68
+12-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:6:5-71
+12-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:6:22-68
 13
 14    <uses-feature android:name="android.hardware.type.watch" />
-14-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:8:5-64
-14-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:8:19-61
+14-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:8:5-64
+14-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:8:19-61
 15
 16    <queries>
-16-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\USER\.gradle\caches\transforms-4\9a142b6e22cfed8d4835b49b036c43d3\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:7:5-9:15
+16-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\yeonn\.gradle\caches\8.9\transforms\41cc151d826258e0f8b0b90504c81cf9\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:7:5-9:15
 17        <package android:name="com.sec.android.app.samsungapps" />
-17-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\USER\.gradle\caches\transforms-4\9a142b6e22cfed8d4835b49b036c43d3\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:8:9-67
-17-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\USER\.gradle\caches\transforms-4\9a142b6e22cfed8d4835b49b036c43d3\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:8:18-64
+17-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\yeonn\.gradle\caches\8.9\transforms\41cc151d826258e0f8b0b90504c81cf9\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:8:9-67
+17-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\yeonn\.gradle\caches\8.9\transforms\41cc151d826258e0f8b0b90504c81cf9\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:8:18-64
 18    </queries>
 19    <queries>
-19-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\USER\.gradle\caches\transforms-4\9a142b6e22cfed8d4835b49b036c43d3\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:7:5-9:15
+19-->[samsung-health-sensor-api-1.3.0.aar] C:\Users\yeonn\.gradle\caches\8.9\transforms\41cc151d826258e0f8b0b90504c81cf9\transformed\samsung-health-sensor-api-1.3.0\AndroidManifest.xml:7:5-9:15
 20        <package android:name="com.samsung.android.service.health" />
 21    </queries> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 22    <!-- <uses-sdk android:minSdkVersion="21"/> -->
 23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-23-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:22:5-79
-23-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:22:22-76
+23-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:22:5-79
+23-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:22:22-76
 24    <uses-permission android:name="android.permission.INTERNET" />
-24-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:5-67
-24-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:22-64
-25
-26    <permission
-26-->[androidx.core:core:1.13.0] C:\Users\USER\.gradle\caches\transforms-4\31401151becfd0f44a999ccb1ecd41e8\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
-27        android:name="com.samsung.health.multisensortracking.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-27-->[androidx.core:core:1.13.0] C:\Users\USER\.gradle\caches\transforms-4\31401151becfd0f44a999ccb1ecd41e8\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
-28        android:protectionLevel="signature" />
-28-->[androidx.core:core:1.13.0] C:\Users\USER\.gradle\caches\transforms-4\31401151becfd0f44a999ccb1ecd41e8\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+24-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:5-67
+24-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:22-64
+25    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+25-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:25:5-79
+25-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:25:22-76
+26    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+26-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:26:5-88
+26-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:26:22-85
+27    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+27-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:27:5-82
+27-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:27:22-79
+28    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+28-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:26:5-110
+28-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:26:22-107
 29
-30    <uses-permission android:name="com.samsung.health.multisensortracking.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-30-->[androidx.core:core:1.13.0] C:\Users\USER\.gradle\caches\transforms-4\31401151becfd0f44a999ccb1ecd41e8\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
-30-->[androidx.core:core:1.13.0] C:\Users\USER\.gradle\caches\transforms-4\31401151becfd0f44a999ccb1ecd41e8\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
-31
-32    <application
-32-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:10:5-41:19
-33        android:allowBackup="true"
-33-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:11:9-35
-34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-34-->[androidx.core:core:1.13.0] C:\Users\USER\.gradle\caches\transforms-4\31401151becfd0f44a999ccb1ecd41e8\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
-35        android:debuggable="true"
-36        android:extractNativeLibs="false"
-37        android:icon="@mipmap/ic_launcher"
-37-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:12:9-43
-38        android:label="@string/app_name"
-38-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:13:9-41
-39        android:supportsRtl="true"
-39-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:14:9-35
-40        android:testOnly="true"
-41        android:theme="@style/Theme.MainTheme" >
-41-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:15:9-47
-42        <activity
-42-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:16:9-18:40
-43            android:name="com.samsung.health.multisensortracking.DetailsActivity"
-43-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:17:13-82
-44            android:exported="false" />
-44-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:18:13-37
-45
-46        <uses-library
-46-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:20:9-22:39
-47            android:name="com.google.android.wearable"
-47-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:21:13-55
-48            android:required="true" />
-48-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:22:13-36
-49        <!--
-50               Set to true if your app is Standalone, that is, it does not require the handheld
-51               app to run.
-52        -->
-53        <meta-data
-53-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:27:9-29:36
-54            android:name="com.google.android.wearable.standalone"
-54-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:28:13-66
-55            android:value="true" />
-55-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:29:13-33
-56
-57        <activity
-57-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:31:9-40:20
-58            android:name="com.samsung.health.multisensortracking.MainActivity"
-58-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:32:13-79
-59            android:exported="true"
-59-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:33:13-36
-60            android:label="@string/app_name" >
-60-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:34:13-45
-61            <intent-filter>
-61-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:35:13-39:29
-62                <action android:name="android.intent.action.MAIN" />
-62-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:36:17-69
-62-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:36:25-66
-63
-64                <category android:name="android.intent.category.LAUNCHER" />
-64-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:38:17-77
-64-->C:\Users\USER\Desktop\Multisensor Tracking (Complete Code)\MultisensorTracking\app\src\main\AndroidManifest.xml:38:27-74
-65            </intent-filter>
-66        </activity>
+30    <permission
+30-->[androidx.core:core:1.13.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b56aa35eca68530fc95cf85c89208f53\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+31        android:name="com.samsung.health.multisensortracking.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+31-->[androidx.core:core:1.13.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b56aa35eca68530fc95cf85c89208f53\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+32        android:protectionLevel="signature" />
+32-->[androidx.core:core:1.13.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b56aa35eca68530fc95cf85c89208f53\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+33
+34    <uses-permission android:name="com.samsung.health.multisensortracking.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+34-->[androidx.core:core:1.13.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b56aa35eca68530fc95cf85c89208f53\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+34-->[androidx.core:core:1.13.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b56aa35eca68530fc95cf85c89208f53\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+35
+36    <application
+36-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:10:5-41:19
+37        android:allowBackup="true"
+37-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:11:9-35
+38        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+38-->[androidx.core:core:1.13.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b56aa35eca68530fc95cf85c89208f53\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+39        android:debuggable="true"
+40        android:extractNativeLibs="false"
+41        android:icon="@mipmap/ic_launcher"
+41-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:12:9-43
+42        android:label="@string/app_name"
+42-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:13:9-41
+43        android:supportsRtl="true"
+43-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:14:9-35
+44        android:testOnly="true"
+45        android:theme="@style/Theme.MainTheme" >
+45-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:15:9-47
+46        <activity
+46-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:16:9-18:40
+47            android:name="com.samsung.health.multisensortracking.DetailsActivity"
+47-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:17:13-82
+48            android:exported="false" />
+48-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:18:13-37
+49
+50        <uses-library
+50-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:20:9-22:39
+51            android:name="com.google.android.wearable"
+51-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:21:13-55
+52            android:required="true" />
+52-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:22:13-36
+53        <!--
+54               Set to true if your app is Standalone, that is, it does not require the handheld
+55               app to run.
+56        -->
+57        <meta-data
+57-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:27:9-29:36
+58            android:name="com.google.android.wearable.standalone"
+58-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:28:13-66
+59            android:value="true" />
+59-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:29:13-33
+60
+61        <activity
+61-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:31:9-40:20
+62            android:name="com.samsung.health.multisensortracking.MainActivity"
+62-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:32:13-79
+63            android:exported="true"
+63-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:33:13-36
+64            android:label="@string/app_name" >
+64-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:34:13-45
+65            <intent-filter>
+65-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:35:13-39:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:36:17-69
+66-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:36:25-66
 67
-68        <service
-68-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:26:9-35:19
-69            android:name="com.google.firebase.components.ComponentDiscoveryService"
-69-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:27:13-84
-70            android:directBootAware="true"
-70-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
-71            android:exported="false" >
-71-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:28:13-37
-72            <meta-data
-72-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:29:13-31:85
-73                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseKtxRegistrar"
-73-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:30:17-120
-74                android:value="com.google.firebase.components.ComponentRegistrar" />
-74-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:31:17-82
-75            <meta-data
-75-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:32:13-34:85
-76                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-76-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:33:17-109
-77                android:value="com.google.firebase.components.ComponentRegistrar" />
-77-->[com.google.firebase:firebase-database:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\4cdb3f702085c708fc52193d1812ace0\transformed\firebase-database-21.0.0\AndroidManifest.xml:34:17-82
-78            <meta-data
-78-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\795e9b7b61f2b778a1a522eaaa29413b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
-79                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
-79-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\795e9b7b61f2b778a1a522eaaa29413b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
-80                android:value="com.google.firebase.components.ComponentRegistrar" />
-80-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\795e9b7b61f2b778a1a522eaaa29413b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
-81            <meta-data
-81-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
-82                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
-82-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
-83                android:value="com.google.firebase.components.ComponentRegistrar" />
-83-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
-84        </service>
-85
-86        <activity
-86-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\USER\.gradle\caches\transforms-4\b19694fe031396502bd465df3b3c5079\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:9-173
-87            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-87-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\USER\.gradle\caches\transforms-4\b19694fe031396502bd465df3b3c5079\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:19-85
-88            android:exported="false"
-88-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\USER\.gradle\caches\transforms-4\b19694fe031396502bd465df3b3c5079\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:146-170
-89            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-89-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\USER\.gradle\caches\transforms-4\b19694fe031396502bd465df3b3c5079\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:86-145
-90
-91        <provider
-91-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
-92            android:name="com.google.firebase.provider.FirebaseInitProvider"
-92-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
-93            android:authorities="com.samsung.health.multisensortracking.firebaseinitprovider"
-93-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
-94            android:directBootAware="true"
-94-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
-95            android:exported="false"
-95-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
-96            android:initOrder="100" />
-96-->[com.google.firebase:firebase-common:21.0.0] C:\Users\USER\.gradle\caches\transforms-4\e00ada6bc23848e190d488c65758d3a6\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
-97        <provider
-97-->[androidx.emoji2:emoji2:1.3.0] C:\Users\USER\.gradle\caches\transforms-4\d364799d841915b51fb9cf459f416c9c\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-98            android:name="androidx.startup.InitializationProvider"
-98-->[androidx.emoji2:emoji2:1.3.0] C:\Users\USER\.gradle\caches\transforms-4\d364799d841915b51fb9cf459f416c9c\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-99            android:authorities="com.samsung.health.multisensortracking.androidx-startup"
-99-->[androidx.emoji2:emoji2:1.3.0] C:\Users\USER\.gradle\caches\transforms-4\d364799d841915b51fb9cf459f416c9c\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-100            android:exported="false" >
-100-->[androidx.emoji2:emoji2:1.3.0] C:\Users\USER\.gradle\caches\transforms-4\d364799d841915b51fb9cf459f416c9c\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-101            <meta-data
-101-->[androidx.emoji2:emoji2:1.3.0] C:\Users\USER\.gradle\caches\transforms-4\d364799d841915b51fb9cf459f416c9c\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-102                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-102-->[androidx.emoji2:emoji2:1.3.0] C:\Users\USER\.gradle\caches\transforms-4\d364799d841915b51fb9cf459f416c9c\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-103                android:value="androidx.startup" />
-103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\USER\.gradle\caches\transforms-4\d364799d841915b51fb9cf459f416c9c\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-104            <meta-data
-104-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\USER\.gradle\caches\transforms-4\aa6e8e5f39568e3275c620b1dd69bb70\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
-105                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-105-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\USER\.gradle\caches\transforms-4\aa6e8e5f39568e3275c620b1dd69bb70\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
-106                android:value="androidx.startup" />
-106-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\USER\.gradle\caches\transforms-4\aa6e8e5f39568e3275c620b1dd69bb70\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
-107            <meta-data
-107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-108                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-109                android:value="androidx.startup" />
-109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-110        </provider>
-111
-112        <meta-data
-112-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\USER\.gradle\caches\transforms-4\96f355d5d3595c361d53c919faf77cf7\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
-113            android:name="com.google.android.gms.version"
-113-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\USER\.gradle\caches\transforms-4\96f355d5d3595c361d53c919faf77cf7\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
-114            android:value="@integer/google_play_services_version" />
-114-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\USER\.gradle\caches\transforms-4\96f355d5d3595c361d53c919faf77cf7\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:38:17-77
+68-->C:\Users\yeonn\Documents\Yeon\Project\Capstone\HRV_Dataset\app\src\main\AndroidManifest.xml:38:27-74
+69            </intent-filter>
+70        </activity>
+71
+72        <service
+72-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:26:9-35:19
+73            android:name="com.google.firebase.components.ComponentDiscoveryService"
+73-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:27:13-84
+74            android:directBootAware="true"
+74-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+75            android:exported="false" >
+75-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:28:13-37
+76            <meta-data
+76-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:29:13-31:85
+77                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseKtxRegistrar"
+77-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:30:17-120
+78                android:value="com.google.firebase.components.ComponentRegistrar" />
+78-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:31:17-82
+79            <meta-data
+79-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:32:13-34:85
+80                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+80-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:33:17-109
+81                android:value="com.google.firebase.components.ComponentRegistrar" />
+81-->[com.google.firebase:firebase-database:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\544b64e6e638d713a77731aefe89a96d\transformed\firebase-database-21.0.0\AndroidManifest.xml:34:17-82
+82            <meta-data
+82-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:37:13-39:85
+83                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+83-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:38:17-139
+84                android:value="com.google.firebase.components.ComponentRegistrar" />
+84-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:39:17-82
+85            <meta-data
+85-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\93b9621ff03491a35f049dc3d524db02\transformed\firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
+86                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+86-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\93b9621ff03491a35f049dc3d524db02\transformed\firebase-installations-18.0.0\AndroidManifest.xml:16:17-130
+87                android:value="com.google.firebase.components.ComponentRegistrar" />
+87-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\93b9621ff03491a35f049dc3d524db02\transformed\firebase-installations-18.0.0\AndroidManifest.xml:17:17-82
+88            <meta-data
+88-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\93b9621ff03491a35f049dc3d524db02\transformed\firebase-installations-18.0.0\AndroidManifest.xml:18:13-20:85
+89                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+89-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\93b9621ff03491a35f049dc3d524db02\transformed\firebase-installations-18.0.0\AndroidManifest.xml:19:17-127
+90                android:value="com.google.firebase.components.ComponentRegistrar" />
+90-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\93b9621ff03491a35f049dc3d524db02\transformed\firebase-installations-18.0.0\AndroidManifest.xml:20:17-82
+91            <meta-data
+91-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b45b996458d8320e00503db88b794697\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+92                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+92-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b45b996458d8320e00503db88b794697\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+93                android:value="com.google.firebase.components.ComponentRegistrar" />
+93-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\b45b996458d8320e00503db88b794697\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+94            <meta-data
+94-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+95                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+95-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+96                android:value="com.google.firebase.components.ComponentRegistrar" />
+96-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+97        </service>
+98
+99        <property
+99-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:30:9-32:61
+100            android:name="android.adservices.AD_SERVICES_CONFIG"
+100-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:31:13-65
+101            android:resource="@xml/ga_ad_services_config" />
+101-->[com.google.android.gms:play-services-measurement-api:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\06b3dd9a83df5bd6646c76fb4f81f440\transformed\play-services-measurement-api-22.1.2\AndroidManifest.xml:32:13-58
+102
+103        <provider
+103-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+104            android:name="com.google.firebase.provider.FirebaseInitProvider"
+104-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+105            android:authorities="com.samsung.health.multisensortracking.firebaseinitprovider"
+105-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+106            android:directBootAware="true"
+106-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+107            android:exported="false"
+107-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+108            android:initOrder="100" />
+108-->[com.google.firebase:firebase-common:21.0.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\75207b857f7fa4a26cdfc9606ede2d9e\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+109
+110        <receiver
+110-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:29:9-33:20
+111            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+111-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:30:13-85
+112            android:enabled="true"
+112-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:31:13-35
+113            android:exported="false" >
+113-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:32:13-37
+114        </receiver>
 115
-116        <receiver
-116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-117            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-118            android:directBootAware="false"
-118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-119            android:enabled="true"
-119-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-120            android:exported="true"
-120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-121            android:permission="android.permission.DUMP" >
-121-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-122            <intent-filter>
-122-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-123                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-123-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-123-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-124            </intent-filter>
-125            <intent-filter>
-125-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-126                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-127            </intent-filter>
-128            <intent-filter>
-128-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-129                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-129-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-129-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-130            </intent-filter>
-131            <intent-filter>
-131-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-132                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-132-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-132-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\USER\.gradle\caches\transforms-4\49ed29d4247dce450ccbb9f078295c9c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-133            </intent-filter>
-134        </receiver>
-135    </application>
-136
-137</manifest>
+116        <service
+116-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:35:9-38:40
+117            android:name="com.google.android.gms.measurement.AppMeasurementService"
+117-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:36:13-84
+118            android:enabled="true"
+118-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:37:13-35
+119            android:exported="false" />
+119-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:38:13-37
+120        <service
+120-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:39:9-43:72
+121            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+121-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:40:13-87
+122            android:enabled="true"
+122-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:41:13-35
+123            android:exported="false"
+123-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:42:13-37
+124            android:permission="android.permission.BIND_JOB_SERVICE" />
+124-->[com.google.android.gms:play-services-measurement:22.1.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\58708eda55b901b617062813de8ece4e\transformed\play-services-measurement-22.1.2\AndroidManifest.xml:43:13-69
+125
+126        <activity
+126-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\7569f01b8313d8eeb8eb61b472058b8a\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+127            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+127-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\7569f01b8313d8eeb8eb61b472058b8a\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+128            android:exported="false"
+128-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\7569f01b8313d8eeb8eb61b472058b8a\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+129            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+129-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\7569f01b8313d8eeb8eb61b472058b8a\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+130
+131        <uses-library
+131-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\yeonn\.gradle\caches\8.9\transforms\1ecd7ecca468ed31de44603260c939d4\transformed\ads-adservices-1.0.0-beta05\AndroidManifest.xml:23:9-25:40
+132            android:name="android.ext.adservices"
+132-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\yeonn\.gradle\caches\8.9\transforms\1ecd7ecca468ed31de44603260c939d4\transformed\ads-adservices-1.0.0-beta05\AndroidManifest.xml:24:13-50
+133            android:required="false" />
+133-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\yeonn\.gradle\caches\8.9\transforms\1ecd7ecca468ed31de44603260c939d4\transformed\ads-adservices-1.0.0-beta05\AndroidManifest.xml:25:13-37
+134
+135        <provider
+135-->[androidx.emoji2:emoji2:1.3.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\daec585c1edcd4b49969a6a58c4ef137\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+136            android:name="androidx.startup.InitializationProvider"
+136-->[androidx.emoji2:emoji2:1.3.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\daec585c1edcd4b49969a6a58c4ef137\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+137            android:authorities="com.samsung.health.multisensortracking.androidx-startup"
+137-->[androidx.emoji2:emoji2:1.3.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\daec585c1edcd4b49969a6a58c4ef137\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+138            android:exported="false" >
+138-->[androidx.emoji2:emoji2:1.3.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\daec585c1edcd4b49969a6a58c4ef137\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+139            <meta-data
+139-->[androidx.emoji2:emoji2:1.3.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\daec585c1edcd4b49969a6a58c4ef137\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+140                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+140-->[androidx.emoji2:emoji2:1.3.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\daec585c1edcd4b49969a6a58c4ef137\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+141                android:value="androidx.startup" />
+141-->[androidx.emoji2:emoji2:1.3.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\daec585c1edcd4b49969a6a58c4ef137\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+142            <meta-data
+142-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\95b52f9d8887a8d48d292f6ae7b64994\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+143                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+143-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\95b52f9d8887a8d48d292f6ae7b64994\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+144                android:value="androidx.startup" />
+144-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\yeonn\.gradle\caches\8.9\transforms\95b52f9d8887a8d48d292f6ae7b64994\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+145            <meta-data
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+146                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+147                android:value="androidx.startup" />
+147-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+148        </provider>
+149
+150        <meta-data
+150-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\d03276cb85f0e9bddeacf47d30126bb2\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+151            android:name="com.google.android.gms.version"
+151-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\d03276cb85f0e9bddeacf47d30126bb2\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+152            android:value="@integer/google_play_services_version" />
+152-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\yeonn\.gradle\caches\8.9\transforms\d03276cb85f0e9bddeacf47d30126bb2\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+153
+154        <receiver
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+155            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+156            android:directBootAware="false"
+156-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+157            android:enabled="true"
+157-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+158            android:exported="true"
+158-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+159            android:permission="android.permission.DUMP" >
+159-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+160            <intent-filter>
+160-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+161                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+161-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+161-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+162            </intent-filter>
+163            <intent-filter>
+163-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+164                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+164-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+164-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+165            </intent-filter>
+166            <intent-filter>
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+167                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+168            </intent-filter>
+169            <intent-filter>
+169-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+170                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\yeonn\.gradle\caches\8.9\transforms\44da915504b4c4b1b85145a05baffed3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+171            </intent-filter>
+172        </receiver>
+173    </application>
+174
+175</manifest>

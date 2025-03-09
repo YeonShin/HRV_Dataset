@@ -10,14 +10,7 @@ id guideline_right
 id progressBar
 id txtHeartRate
 id txtHeartRateName
-id txtHeartRateStatus
-id txtHeartRateStatusName
-id txtIbi
-id txtIbiName
-id txtIbiStatus
-id txtIbiStatusName
-id txtStatus
-layout activity_details
+id txtTimeElapsed
 layout activity_main
 mipmap ic_launcher
 string BodySensors

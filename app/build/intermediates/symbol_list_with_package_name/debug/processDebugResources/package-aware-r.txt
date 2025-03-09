@@ -3784,13 +3784,7 @@ id transition_transform
 id triangle
 id txtHeartRate
 id txtHeartRateName
-id txtHeartRateStatus
-id txtHeartRateStatusName
-id txtIbi
-id txtIbiName
-id txtIbiStatus
-id txtIbiStatusName
-id txtStatus
+id txtTimeElapsed
 id unchecked
 id uniform
 id unlabeled
@@ -3953,7 +3947,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_details
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -5614,3 +5607,4 @@ styleable WearableDrawerView android_background android_elevation drawerContent 
 styleable WearableNavigationDrawerView navigationStyle
 styleable WearableRecyclerView bezelWidth circularScrollingGestureEnabled scrollDegreesPerScreen
 styleable include constraintSet
+xml ga_ad_services_config

@@ -19,7 +19,7 @@
     <string name="ExtraIbi">Ibi</string>
     <string name="ExtraQualityIbi">QualityIbi</string>
     <string name="HealthPlatformVersionIsOutdated">"Health Platform version is outdated or not installed.</string>
-    <string name="HeartRate">Press the measure button.(35second)</string>
+    <string name="HeartRate">버튼을 누르면 측정을 시작합니다.</string>
     <string name="HeartRateDefaultValue">0</string>
     <string name="HeartRateStatus">HR Status</string>
     <string name="HeartRateStatusDefaultValue">0</string>
@@ -48,11 +48,11 @@
     <string name="StopLabel">Stop</string>
     <string name="TxtPercent">%</string>
     <string name="app_name">Multisensor Tracking</string>
-    <string name="firebase_database_url" translatable="false">https://hrdata-40ce1-default-rtdb.firebaseio.com</string>
-    <string name="gcm_defaultSenderId" translatable="false">822497114400</string>
-    <string name="google_api_key" translatable="false">AIzaSyDzCwKS2F2vNbRsL1hZMxEgjYCEWjPBr3Q</string>
-    <string name="google_app_id" translatable="false">1:822497114400:android:6b4a921425bad220a87f45</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDzCwKS2F2vNbRsL1hZMxEgjYCEWjPBr3Q</string>
-    <string name="google_storage_bucket" translatable="false">hrdata-40ce1.firebasestorage.app</string>
-    <string name="project_id" translatable="false">hrdata-40ce1</string>
+    <string name="firebase_database_url" translatable="false">https://hrvdataset-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">998604140837</string>
+    <string name="google_api_key" translatable="false">AIzaSyC50hLSFyO2fW5RYonaiVf8heB_ELCa1Rs</string>
+    <string name="google_app_id" translatable="false">1:998604140837:android:ff2c074b29aa08ad42eacc</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC50hLSFyO2fW5RYonaiVf8heB_ELCa1Rs</string>
+    <string name="google_storage_bucket" translatable="false">hrvdataset.firebasestorage.app</string>
+    <string name="project_id" translatable="false">hrvdataset</string>
 </resources>

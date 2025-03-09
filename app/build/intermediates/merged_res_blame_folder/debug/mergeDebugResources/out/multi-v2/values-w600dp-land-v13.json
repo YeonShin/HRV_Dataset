@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.samsung.health.multisensortracking.app-mergeDebugResources-37:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.samsung.health.multisensortracking.app-mergeDebugResources-40:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\05c20d73e9c3ecc35f2d0a56ac35d6cb\\transformed\\material-1.12.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\yeonn\\.gradle\\caches\\8.9\\transforms\\7144a1bc01a5893cf6e15e2210627b81\\transformed\\material-1.12.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
