@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MainActivity extends Activity {
 
     private final static String APP_TAG = "MainActivity";
-    private final static int MEASUREMENT_DURATION = 3600000; // 측정 길이(1시간)
+    private final static int MEASUREMENT_DURATION = 7200000; // 측정 길이(2시간)
     private final static Long MEASUREMENT_TICK = 250L; // 측정 간격, ms단위
 
     private final AtomicBoolean isMeasurementRunning = new AtomicBoolean(false); // 측정 실행 여부 플래그

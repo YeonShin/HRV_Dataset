@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "822497114400",
-    "firebase_url": "https://hrdata-40ce1-default-rtdb.firebaseio.com",
-    "project_id": "hrdata-40ce1",
-    "storage_bucket": "hrdata-40ce1.firebasestorage.app"
+    "project_number": "998604140837",
+    "firebase_url": "https://hrvdataset-default-rtdb.firebaseio.com",
+    "project_id": "hrvdataset",
+    "storage_bucket": "hrvdataset.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:822497114400:android:6b4a921425bad220a87f45",
+        "mobilesdk_app_id": "1:998604140837:android:ff2c074b29aa08ad42eacc",
         "android_client_info": {
           "package_name": "com.samsung.health.multisensortracking"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDzCwKS2F2vNbRsL1hZMxEgjYCEWjPBr3Q"
+          "current_key": "AIzaSyC50hLSFyO2fW5RYonaiVf8heB_ELCa1Rs"
         }
       ],
       "services": {

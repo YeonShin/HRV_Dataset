@@ -1,38 +1,38 @@
 [
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\layout_activity_details.xml.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\layout\\activity_details.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\drawable_button_background.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\drawable\\button_background.xml"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\layout_activity_details.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\layout\\activity_details.xml"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\drawable_button_background.xml.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\drawable\\button_background.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-debug-39:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.7\\com.samsung.health.multisensortracking.app-main-41:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-debug-42:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\yeonn\\.gradle\\daemon\\8.9\\com.samsung.health.multisensortracking.app-main-44:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.samsung.health.multisensortracking.app-debug-39:/layout_activity_main.xml.flat",
-        "source": "com.samsung.health.multisensortracking.app-main-41:/layout/activity_main.xml"
+        "merged": "com.samsung.health.multisensortracking.app-debug-42:/layout_activity_main.xml.flat",
+        "source": "com.samsung.health.multisensortracking.app-main-44:/layout/activity_main.xml"
     }
 ]
