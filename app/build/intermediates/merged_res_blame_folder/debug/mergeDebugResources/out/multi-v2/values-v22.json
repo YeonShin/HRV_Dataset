@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.samsung.health.multisensortracking.app-mergeDebugResources-40:/values-v22/values-v22.xml",
+            "outputFile": "com.samsung.health.multisensortracking.app-mergeDebugResources-37:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\yeonn\\.gradle\\caches\\8.9\\transforms\\a06f8dcb1b0a90b2d9e832633f1aa103\\transformed\\appcompat-1.7.0\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\468e675c689c771860654454c23bfee4\\transformed\\appcompat-1.7.0\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
